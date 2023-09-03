@@ -26,7 +26,7 @@
 extern "C" {
 #endif
 
-#include <libde265/de265-version.h>
+#include "extra/libde265/de265-version.h"
 
 //#define inline static __inline
 
