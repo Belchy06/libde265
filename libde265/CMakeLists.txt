@@ -91,6 +91,8 @@ if(MSVC OR MINGW)
 endif()
 
 add_definitions(-DLIBDE265_EXPORTS)
+# Disable asserts
+add_definitions(-DNDEBUG)
 
 add_subdirectory (encoder)
 

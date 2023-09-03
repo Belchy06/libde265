@@ -1,4 +1,8 @@
-cmake_minimum_required (VERSION 3.3.2)
+cmake_minimum_required (VERSION 3.14)
+
+if(POLICY CMP0091)
+  cmake_policy(SET CMP0091 NEW)
+endif()
 
 project (libde265
     LANGUAGES C CXX
@@ -9,6 +13,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded")
 
 # The version number.
 set (NUMERIC_VERSION 0x01001200)
