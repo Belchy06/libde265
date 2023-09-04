@@ -733,12 +733,12 @@ public:
     ctb_info.get(x,y).SliceHeaderIndex = SliceHeaderIndex;
   }
 
-  int  get_SliceHeaderIndex(int x, int y) const
+  uint16_t get_SliceHeaderIndex(int x, int y) const
   {
     return ctb_info.get(x,y).SliceHeaderIndex;
   }
 
-  int  get_SliceHeaderIndexCtb(int ctbX, int ctbY) const
+  uint16_t get_SliceHeaderIndexCtb(int ctbX, int ctbY) const
   {
     return ctb_info[ctbX + ctbY*ctb_info.width_in_units].SliceHeaderIndex;
   }
@@ -750,28 +750,28 @@ public:
 
   bool is_SliceHeader_available(int x,int y) const
   {
-    int idx = ctb_info.get(x,y).SliceHeaderIndex;
+    uint16_t idx = ctb_info.get(x,y).SliceHeaderIndex;
     return idx >= 0 && idx < slices.size();
   }
 
   slice_segment_header* get_SliceHeader(int x, int y)
   {
-    int idx = get_SliceHeaderIndex(x,y);
-    if (idx >= slices.size()) { return NULL; }
+	uint16_t idx = get_SliceHeaderIndex(x, y);
+	if (idx >= slices.size()) { return NULL; }
     return slices[idx];
   }
 
   slice_segment_header* get_SliceHeaderCtb(int ctbX, int ctbY)
   {
-    int idx = get_SliceHeaderIndexCtb(ctbX,ctbY);
-    if (idx >= slices.size()) { return NULL; }
+	uint16_t idx = get_SliceHeaderIndexCtb(ctbX, ctbY);
+	if (idx >= slices.size()) { return NULL; }
     return slices[idx];
   }
 
   const slice_segment_header* get_SliceHeaderCtb(int ctbX, int ctbY) const
   {
-    int idx = get_SliceHeaderIndexCtb(ctbX,ctbY);
-    if (idx >= slices.size()) { return NULL; }
+	uint16_t idx = get_SliceHeaderIndexCtb(ctbX, ctbY);
+	if (idx >= slices.size()) { return NULL; }
     return slices[idx];
   }
 
